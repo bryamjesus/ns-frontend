@@ -1,18 +1,30 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../css/NavBar.css";
 
 const NavBarPrincipal = () => {
   const [active, setActive] = useState(false);
-  const handleActiveBar = (e) => {
-    e.preventDefault();
-    console.log(e);
-    setActive(!active);
-  };
+  const refHambuerguer = useRef(null);
 
-  const handelMenuActive = (e) => {
-    
-  };
+  useEffect(() => {
+    const handelMenuActive = (e) => {
+      console.log(e.path[0].className);
+      console.log(active);
+
+      if (
+        active &&
+        e.path[0].className !== "nav__links active" &&
+        e.path[0].className !== "nav__hamburguer"
+      ) {
+        setActive(false);
+      }
+      e.preventDefault();
+    };
+
+    document.addEventListener("click", handelMenuActive, true);
+
+    // return () => document.body.removeEventListener("click", handelMenuActive);
+  }, []);
 
   return (
     <>
@@ -26,11 +38,11 @@ const NavBarPrincipal = () => {
             src="./public/icon-hamburger.svg"
             alt="Icono de navegacion"
             className="nav__hamburguer"
-            onClick={handleActiveBar}
+            onClick={() => setActive((prev) => !prev)}
           />
 
           <div
-            onClick={handleActiveBar}
+            ref={refHambuerguer}
             className={`nav__links ${active ? "active" : ""}`}
           >
             <Link to="/login" className="nav__link">
