@@ -6,7 +6,6 @@ import PrincipalPage from "./pages/PrincipalPage";
 const App = () => {
   return (
     <BrowserRouter>
-      <h1>Hola mundo</h1>
       <AppProvider>
         <Routes>
           <Route index element={<PrincipalPage />} />

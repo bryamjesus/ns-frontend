@@ -1,0 +1,114 @@
+.nav {
+  background-color: var(--fondo-nav);
+}
+
+/* 
+--fondo-card: #f0f4f1;
+--fondo-footer: #f0d9c3;
+--color-letra-principal: #000;
+--color-letra-secundaria: #fff;
+--white: hsl(0, 0%, 100%);
+--dark-moderate-cyan: hsl(168, 34%, 41%);
+
+--font-fraunces: "Fraunces", serif;
+--font-barlow: "Barlow", sans-serif;
+*/
+.nav__content {
+  /* padding: 30px 0; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  font-family: var(--font-fraunces);
+  font-weight: 900;
+  color: var(--white);
+}
+
+.nav__links {
+  position: fixed;
+  top: 110px;
+  left: 0;
+  right: 0;
+  width: 90%;
+  margin: 0 auto;
+  padding: 2em 1em;
+  background-color: var(--fondo-nav);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2em;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s opacity;
+}
+
+.nav__links::before {
+  content: "";
+  position: absolute;
+  border-top: 15px solid transparent;
+  border-left: 15px solid transparent;
+  border-right: 15px solid var(--fondo-nav);
+  border-bottom: 15px solid var(--fondo-nav);
+  top: -22px;
+  right: 15px;
+}
+
+.active {
+  pointer-events: unset;
+  opacity: 1;
+}
+
+.nav__link {
+  display: inline;
+  text-align: center;
+  color: var(--white);
+  font-family: var(--font-barlow);
+  font-weight: 600;
+}
+
+.nav__link--cta {
+  font-size: 0.8em;
+  color: #000;
+  /* background-color: var(--yellow); */
+  padding: 1.2em 1.5em;
+  border-radius: 2em;
+  /* font-family: var(--font-fraunces); */
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .nav__hamburguer {
+    display: none;
+  }
+
+  .nav__links {
+    background-color: unset;
+    position: unset;
+    width: unset;
+    margin: unset;
+    padding: unset;
+    opacity: 1;
+    display: flex;
+    flex-direction: unset;
+    gap: 1.2rem;
+    align-items: center;
+    pointer-events: unset;
+  }
+
+  .nav__links::before {
+    display: none;
+  }
+
+  .nav__link {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .nav__link--cta {
+    /* color: var(--dark-blue); */
+    /* background-color: var(--white); */
+  }
+}

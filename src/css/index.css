@@ -1,1 +1,31 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;1,700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap");
+
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --fondo-nav: #3ebfff; /* #f0f4f1 */ 
+  --fondo-card: #f0f4f1;
+  --fondo-footer: #f0d9c3;
+  --color-letra-principal: #000;
+  --color-letra-secundaria: #fff;
+  --white: hsl(0, 0%, 100%);
+  --dark-moderate-cyan: hsl(168, 34%, 41%);
+
+  --font-fraunces: "Fraunces", serif;
+  --font-barlow: "Barlow", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: min(90%, 1200px);
+  margin: 0 auto;
+  padding: 30px 0;
+}

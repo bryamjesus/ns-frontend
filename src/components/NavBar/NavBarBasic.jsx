@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 const NavBarBasic = () => {
   return (
     <>
-      <ul>
-        <li>
-          <Link to="/">LOGO NACHO STORE</Link>
-        </li>
-      </ul>
+      <nav className="nav">
+        <div className="container nav__content">
+          <Link to="/">
+            <h1 className="nav__logo">Nacho Store</h1>
+          </Link>
+        </div>
+      </nav>
     </>
   );
 };
