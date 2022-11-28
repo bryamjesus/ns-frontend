@@ -1,8 +1,8 @@
 /**
  * TODO: BASE DE LAS URL
  */
-export const URL_API = "http://localhost:3000/api";
-export const IMG_URL = URL_API + "/platos";
+export const URL_API = `http://localhost:3000/api`;
+export const IMG_URL = `${URL_API}/products`;
 
 /**
  * TODO: USUARIOS
