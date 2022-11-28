@@ -28,7 +28,7 @@
 
 .nav__links {
   position: fixed;
-  top: 110px;
+  top: 128px;
   left: 0;
   right: 0;
   width: 90%;
@@ -53,7 +53,7 @@
   border-right: 15px solid var(--fondo-nav);
   border-bottom: 15px solid var(--fondo-nav);
   top: -22px;
-  right: 15px;
+  right: 45px;
 }
 
 .active {
