@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { URL_IMG } from "../../helper/Config";
+import { URL_IMG } from "../../../helper/Config";
 
 const CardProduct = ({ id, name, description, price, image }) => {
   return (

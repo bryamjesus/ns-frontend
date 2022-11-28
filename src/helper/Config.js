@@ -2,8 +2,14 @@
  * TODO: BASE DE LAS URL
  */
 const URL_BASE = `http://localhost:3000`;
-export const URL_API = `${URL_BASE}/api`;
-export const URL_IMG = `${URL_BASE}/products`;
+const ROUTE_URL_API = `/api`;
+export const URL_API = `${URL_BASE}${ROUTE_URL_API}`;
+
+/**
+ * TODO: IMAGENES PRODUCTOS
+ */
+const ROUTE_URL_IMG = `/products`;
+export const URL_IMG = `${URL_BASE}${ROUTE_URL_IMG}`;
 
 /**
  * TODO: USUARIOS

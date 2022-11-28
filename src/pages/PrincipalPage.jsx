@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import NavBarPrincipal from "../components/NavBar/NavBarPrincipal";
+import DetailProductPage from "../components/PagePrincipal/DetailProductPage";
 import ListProducts from "../components/PagePrincipal/ListProducts";
-import DetailProductPage from "./DetailProductPage";
 
 const PrincipalPage = () => {
   return (
