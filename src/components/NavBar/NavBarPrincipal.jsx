@@ -7,22 +7,21 @@ const NavBarPrincipal = () => {
   const refHambuerguer = useRef(null);
 
   useEffect(() => {
-    const handelMenuActive = (e) => {
-      console.log(e.path[0].className);
-      console.log(active);
-
-      if (
-        active &&
-        e.path[0].className !== "nav__links active" &&
-        e.path[0].className !== "nav__hamburguer"
-      ) {
-        setActive(false);
-      }
-      e.preventDefault();
-    };
-
-    document.addEventListener("click", handelMenuActive, true);
-
+    // console.log(2)
+    // const handelMenuActive = (e) => {
+    //   console.log(e.path[0].className);
+    //   console.log(active);
+    //   if (
+    //     active &&
+    //     e.path[0].className !== "nav__links active" &&
+    //     e.path[0].className !== "nav__hamburguer"
+    //   ) {
+    //     console.log("Ingeso")
+    //     setActive(false);
+    //   }
+    //   e.preventDefault();
+    // };
+    // document.addEventListener("click", handelMenuActive, true);
     // return () => document.body.removeEventListener("click", handelMenuActive);
   }, []);
 
@@ -35,7 +34,7 @@ const NavBarPrincipal = () => {
           </Link>
 
           <img
-            src="./public/icon-hamburger.svg"
+            src="./icon-hamburger.svg"
             alt="Icono de navegacion"
             className="nav__hamburguer"
             onClick={() => setActive((prev) => !prev)}

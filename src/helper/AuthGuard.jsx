@@ -24,7 +24,7 @@ function AuthGuard({ component: Component }) {
     validar() ? (
       <Component />
     ) : (
-      <Navigate to="/principal" />
+      <Navigate to="/login" />
     )
   ) : (
     <Navigate to="/" />

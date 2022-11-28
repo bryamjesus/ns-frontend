@@ -1,10 +1,10 @@
 import axios from "axios";
-import { API_URL } from "./Config";
+import { URL_API } from "./Config";
 
 export const Api = () => {
   const token = localStorage.token;
   const apiAxios = axios.create({
-    baseURL: API_URL + "/api",
+    baseURL: URL_API,
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",

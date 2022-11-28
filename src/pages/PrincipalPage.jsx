@@ -4,7 +4,7 @@ const PrincipalPage = () => {
   return (
     <>
       <NavBarPrincipal />
-      <h1>Hola PrincipalPage</h1>
+      <h1>Hola Principal Page</h1>
     </>
   );
 };
