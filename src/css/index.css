@@ -23,6 +23,10 @@ a {
   text-decoration: none;
 }
 
+img {
+  width: 100%;
+}
+
 .container {
   width: min(90%, 1200px);
   margin: 0 auto;

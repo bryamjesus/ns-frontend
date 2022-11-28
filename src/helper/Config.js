@@ -1,15 +1,17 @@
 /**
  * TODO: BASE DE LAS URL
  */
-export const URL_API = `http://localhost:3000/api`;
-export const IMG_URL = `${URL_API}/products`;
+const URL_BASE = `http://localhost:3000`;
+export const URL_API = `${URL_BASE}/api`;
+export const URL_IMG = `${URL_BASE}/products`;
 
 /**
  * TODO: USUARIOS
  */
 const ROUTE_URL_USER = `/user`;
+const ROUTE_URL_LOGIN = `/login`;
 export const URL_API_USERS = `${URL_API}${ROUTE_URL_USER}`;
-export const URL_API_USERS_LOGIN = `${URL_API_USERS}/login`;
+export const URL_API_USERS_LOGIN = `${URL_API_USERS}${ROUTE_URL_LOGIN}`;
 
 /**
  * TODO: PRODUCTOS
