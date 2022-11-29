@@ -1,10 +1,17 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { AppContext } from "../../context/AppContext";
 import "../../css/NavBar.css";
 
 const NavBarPrincipal = () => {
+  const { name, role, logout, token } = useContext(AppContext);
   const [active, setActive] = useState(false);
   const refHambuerguer = useRef(null);
+
+  const handleLogut = () => {
+    logout();
+    navigate("/");
+  };
 
   useEffect(() => {
     // console.log(2)
@@ -44,9 +51,18 @@ const NavBarPrincipal = () => {
             ref={refHambuerguer}
             className={`nav__links ${active ? "active" : ""}`}
           >
-            <Link to="/login" className="nav__link">
-              Iniciar Sesion
+            <Link to="/cart-shopping" className="nav__link">
+              <img src="/cart4.svg" />
             </Link>
+            {token ? (
+              <Link onClick={handleLogut} className="nav__link">
+                Cerrar Sesión
+              </Link>
+            ) : (
+              <Link to="/login" className="nav__link">
+                Iniciar Sesion
+              </Link>
+            )}
           </div>
         </div>
       </nav>

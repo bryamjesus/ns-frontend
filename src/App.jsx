@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AppProvider } from "./context/AppContext";
 import LoginPage from "./pages/LoginPage";
 import PrincipalPage from "./pages/PrincipalPage";
+import ShoppingCartPage from "./pages/ShoppingCartPage";
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
       <AppProvider>
         <Routes>
           <Route path="/*" element={<PrincipalPage />} />
+          <Route path="/cart-shopping" element={<ShoppingCartPage />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
       </AppProvider>

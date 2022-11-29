@@ -9,6 +9,13 @@ const AppProvider = ({ children }) => {
   const [name, setname] = useState(null);
   const [role, setRole] = useState(null);
   const [token, setToken] = useState(localStorage.token);
+  const [cart, setCart] = useState([]);
+
+  const addProductCart = (objectId) => {
+    console.log(objectId)
+    setCart(objectId);
+    localStorage.cart = cart
+  };
 
   const login = (data) => {
     const token = data.token;
@@ -21,12 +28,12 @@ const AppProvider = ({ children }) => {
     localStorage.token = token;
   };
 
-  function logout() {
+  const logout = () => {
     setIdUser(null);
     setname(null);
     setRole(null);
     localStorage.removeItem("token");
-  }
+  };
 
   useEffect(() => {
     console.log("UserProvider useEffect");
@@ -44,7 +51,9 @@ const AppProvider = ({ children }) => {
   }, []);
 
   return (
-    <Provider value={{ token, idUser, name, role, login, logout }}>
+    <Provider
+      value={{ token, idUser, name, role, login, logout, addProductCart, cart }}
+    >
       {children}
     </Provider>
   );
