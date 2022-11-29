@@ -1,0 +1,23 @@
+.products {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.product {
+  border: 1px solid black;
+  background-color: #eee;
+  color: var(--color-letra-principal);
+  border-radius: 10px;
+}
+
+.product__img {
+  border-radius: 10px;
+  height: 250px;
+  object-fit: contain;
+}
+
+.product__content {
+  padding: 1.5rem 0 1.5rem 0;
+}

@@ -1,5 +1,8 @@
 .nav {
-  background-color: var(--fondo-nav);
+  background-color: var(--color-nav);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  /* position: fixed; */
 }
 
 /* 
@@ -38,7 +41,7 @@
   width: 90%;
   margin: 0 auto;
   padding: 2em 1em;
-  background-color: var(--fondo-nav);
+  background-color: var(--color-nav);
 
   display: flex;
   align-items: center;
@@ -54,8 +57,8 @@
   position: absolute;
   border-top: 15px solid transparent;
   border-left: 15px solid transparent;
-  border-right: 15px solid var(--fondo-nav);
-  border-bottom: 15px solid var(--fondo-nav);
+  border-right: 15px solid var(--color-nav);
+  border-bottom: 15px solid var(--color-nav);
   top: -22px;
   right: 45px;
 }

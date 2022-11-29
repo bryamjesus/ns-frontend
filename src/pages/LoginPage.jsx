@@ -4,6 +4,7 @@ import { loginUserService } from "../service/UserService";
 import { AppContext } from "../context/AppContext";
 import Swal from "sweetalert2";
 import NavBarBasic from "../components/NavBar/NavBarBasic";
+import Footer from "../components/Footer/Footer";
 
 const initValues = {
   email: "",
@@ -105,6 +106,7 @@ const LoginPage = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };
