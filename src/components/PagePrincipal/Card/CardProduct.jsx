@@ -9,9 +9,11 @@ const CardProduct = ({ id, name, description, price, image }) => {
         <div className="product">
           <img className="product__img" src={`${URL_IMG}/${image}`} />
           <div className="product__content">
-            <h4>{name}</h4>
+            <h4 className="product__title">{name}</h4>
             {/* <p>{description}</p> */}
-            <p>S/ {price}</p>
+            <div className="product__description">
+              <p>S/ {price}</p>
+            </div>
             {/* <div>
             <button>CARRITO</button>
             <button>S</button>

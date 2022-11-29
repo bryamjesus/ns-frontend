@@ -8,6 +8,7 @@
 
 :root {
   --color-nav:#323232;
+  --color-letra-principal: #1d1d1f;
 
 
 
@@ -15,7 +16,7 @@
   --fondo-card: #f0f4f1;
   --fondo-footer: #f0d9c3;
   /* --color-letra-principal: #000; */
-  --color-letra-principal: #353535;
+  /* --color-letra-principal: #353535; */
   --color-letra-secundaria: #fff;
   --white: hsl(0, 0%, 100%);
   --dark-moderate-cyan: hsl(168, 34%, 41%);

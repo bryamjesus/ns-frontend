@@ -6,8 +6,8 @@
 }
 
 .product {
-  border: 1px solid black;
-  background-color: #eee;
+  /* border: 1px solid black; */
+  background-color: #fbfbfb;
   color: var(--color-letra-principal);
   border-radius: 10px;
 }
@@ -20,4 +20,12 @@
 
 .product__content {
   padding: 1.5rem 0 1.5rem 0;
+}
+
+.product__title{
+  font-weight: 600;
+}
+
+.product__description{
+  color: #6e6e73;
 }
