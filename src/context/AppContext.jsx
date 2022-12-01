@@ -9,12 +9,25 @@ const AppProvider = ({ children }) => {
   const [name, setname] = useState(null);
   const [role, setRole] = useState(null);
   const [token, setToken] = useState(localStorage.token);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(localStorage.cart); //
 
   const addProductCart = (objectId) => {
-    console.log(objectId)
-    setCart(objectId);
-    localStorage.cart = cart
+    if (localStorage.cart === undefined) {
+      setCart(objectId);
+      localStorage.cart = objectId;
+    } else {
+      const a = localStorage.cart;
+      const allProducts = a.split(",");
+      allProducts.push(objectId);
+      console.log(allProducts);
+      const newAllProducts = allProducts.join();
+      setCart(newAllProducts);
+      localStorage.cart = newAllProducts;
+    }
+  };
+
+  const getAllCart = () => {
+    return localStorage.cart;
   };
 
   const login = (data) => {
@@ -36,6 +49,7 @@ const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    console.log("useeffectt => ", cart);
     console.log("UserProvider useEffect");
     if (token) {
       console.log("Sí hay token");
@@ -52,7 +66,17 @@ const AppProvider = ({ children }) => {
 
   return (
     <Provider
-      value={{ token, idUser, name, role, login, logout, addProductCart, cart }}
+      value={{
+        token,
+        idUser,
+        name,
+        role,
+        cart,
+        login,
+        logout,
+        addProductCart,
+        getAllCart,
+      }}
     >
       {children}
     </Provider>

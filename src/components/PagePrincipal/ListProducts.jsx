@@ -5,20 +5,15 @@ import "../../css/products.css";
 import { AppContext } from "../../context/AppContext";
 
 const ListProducts = () => {
-  const { cart, addProductCart } = useContext(AppContext);
+  const { addProductCart } = useContext(AppContext);
   const [products, setProducts] = useState([]);
 
-  // console.log(cart);
-
   const productCart = (id) => {
-    const addProduct = [...cart, id]
-    console.log(addProduct);
-    addProductCart(addProduct);
+    addProductCart(id);
   };
 
   const listAllProducts = async () => {
     const result = await getAllProducts();
-    // console.log(result.data.results);
     setProducts(result.data.results);
   };
 
