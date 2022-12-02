@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { URL_IMG } from "../../../helper/Config";
 import "../../../css/products.css";
 
-const CardProduct = ({ id, name, description, price, image, productCart }) => {
+const CardProduct = ({ id, name, description, price, image, productCart, objetoTotal }) => {
   return (
     <>
       <div className="product">
@@ -17,7 +17,7 @@ const CardProduct = ({ id, name, description, price, image, productCart }) => {
           </div>
         </Link>
         <div>
-          <button onClick={() => productCart(id)}>CARRITO</button>
+          <button onClick={() => productCart(objetoTotal)}>CARRITO</button>
           {/* <button>S</button> */}
         </div>
       </div>

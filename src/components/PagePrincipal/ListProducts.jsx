@@ -33,6 +33,7 @@ const ListProducts = () => {
             price={product.price}
             image={product.image}
             productCart={productCart}
+            objetoTotal = {product}
           />
         ))}
       </section>

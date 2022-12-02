@@ -11,23 +11,27 @@ const AppProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.token);
   const [cart, setCart] = useState(localStorage.cart); //
 
-  const addProductCart = (objectId) => {
+  const addProductCart = (objectProduct) => {
     if (localStorage.cart === undefined) {
-      setCart(objectId);
-      localStorage.cart = objectId;
+      const stringObject = JSON.stringify([objectProduct]);
+      setCart(stringObject);
+      localStorage.cart = stringObject;
     } else {
-      const a = localStorage.cart;
-      const allProducts = a.split(",");
-      allProducts.push(objectId);
-      console.log(allProducts);
-      const newAllProducts = allProducts.join();
-      setCart(newAllProducts);
-      localStorage.cart = newAllProducts;
+      // (localStorage.cart !== undefined)
+      const allProducts = JSON.parse(localStorage.cart);
+      const newProducts = JSON.stringify([...allProducts, objectProduct]);
+      setCart(newProducts);
+      localStorage.cart = newProducts;
     }
   };
 
-  const getAllCart = () => {
-    return localStorage.cart;
+  const getAllProducts = () => {
+    if (localStorage.cart !== undefined) {
+      const allProducts = JSON.parse(localStorage.cart);
+      console.log(allProducts);
+      return allProducts;
+    }
+    return;
   };
 
   const login = (data) => {
@@ -75,7 +79,7 @@ const AppProvider = ({ children }) => {
         login,
         logout,
         addProductCart,
-        getAllCart,
+        getAllProducts,
       }}
     >
       {children}
@@ -84,3 +88,15 @@ const AppProvider = ({ children }) => {
 };
 
 export { AppProvider, AppContext };
+
+// if (localStorage.cart === undefined) {
+//   setCart(objectId);
+//   localStorage.cart = objectId;
+// } else {
+//   const a = localStorage.cart;
+//   const allProducts = a.split(",");
+//   allProducts.push(objectId);
+//   const newAllProducts = allProducts.join();
+//   setCart(newAllProducts);
+//   localStorage.cart = newAllProducts;
+// }
