@@ -10,6 +10,7 @@ const ShoppingCartPage = () => {
 
   const getProducts = () => {
     if (getAllProducts() !== undefined) {
+      console.log(getAllProducts());
       setTokenCart(getAllProducts());
     }
   };
@@ -26,8 +27,8 @@ const ShoppingCartPage = () => {
           <h2>Carrito de compras</h2>
           <h3>Productos</h3>
           <article>
-            {tokenCart?.map((x) => (
-              <h1>www</h1>
+            {tokenCart?.map((product) => (
+              <div key={product._id}>{product.description}</div>
             ))}
           </article>
         </div>

@@ -28,7 +28,6 @@ const AppProvider = ({ children }) => {
   const getAllProducts = () => {
     if (localStorage.cart !== undefined) {
       const allProducts = JSON.parse(localStorage.cart);
-      console.log(allProducts);
       return allProducts;
     }
     return;
