@@ -44,3 +44,11 @@ img {
   margin: 0 auto;
   padding: 30px 0;
 }
+
+.pdx-1{
+  padding: 1rem 0;
+}
+
+.bd-2-gray{
+  border-bottom: 2px solid #eee;
+}

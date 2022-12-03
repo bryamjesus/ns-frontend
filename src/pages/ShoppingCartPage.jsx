@@ -12,7 +12,6 @@ const ShoppingCartPage = () => {
 
   const getProducts = () => {
     if (cart !== undefined) {
-      console.log("d");
       setTokenCart(getAllProducts());
     }
   };
@@ -21,9 +20,7 @@ const ShoppingCartPage = () => {
     if (cart !== undefined) {
       let a = 0;
       getAllProducts().forEach((product) => {
-        console.log(product);
         a += product.price;
-        console.log(a);
       });
       setTotal(a);
     }
@@ -33,19 +30,15 @@ const ShoppingCartPage = () => {
     deleteOneProductCart(id);
   };
 
-  useEffect(() => {
-    totalPrice();
-  }, []);
+  // useEffect(() => {
+  //   totalPrice();
+  // }, []);
 
   useEffect(() => {
     getProducts();
     totalPrice();
   }, [cart]);
 
-  /**
-   * TODO: PONER CART en vez de shoopingcart
-   * 
-   */
   return (
     <>
       <NavBarBasic />
@@ -57,9 +50,9 @@ const ShoppingCartPage = () => {
               <h3 className="total__price">S/ {total}</h3>
               <button className="total__pay">Pagar</button>
             </div>
-            <div className="allProducts">
+            <div className="cartProducts">
               <h2 className="">Cesta</h2>
-              <article className="">
+              <article className="carts">
                 {tokenCart?.map((product) => (
                   <ShoppingCart
                     key={product._id}

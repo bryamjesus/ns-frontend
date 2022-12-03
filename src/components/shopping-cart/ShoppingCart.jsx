@@ -1,23 +1,28 @@
-import { Link } from "react-router-dom";
 import { URL_IMG } from "../../helper/Config";
 
 const ShoppingCart = ({ id, name, image, deleteProduct, price }) => {
   return (
     <>
-      <div className="productCart">
-        <img className="productCart__img" src={`${URL_IMG}/${image}`} />
+      <div className="pdx-1 bd-2-gray">
+        <div className="cart">
+          <div className="cart__img">
+            <img className="cart_img2" src={`${URL_IMG}/${image}`} />
+          </div>
 
-        <h3 className="productCart__name">{name}</h3>
+          <div className="cart__header">
+            <h3 className="cart__title">{name}</h3>
+          </div>
 
-        <div className="productCart__price">
-          <span>S/ {price}</span>
-        </div>
-        <div className="cart__links">
-          <span className="cart__link" onClick={() => deleteProduct(id)}>
-            Eliminar
-          </span>
+          <span className="cart__price">S/ {price}</span>
+
+          <div className="cart__links">
+            <span className="cart__link" onClick={() => deleteProduct(id)}>
+              Eliminar
+            </span>
+          </div>
         </div>
       </div>
+
     </>
   );
 };
