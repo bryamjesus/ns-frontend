@@ -33,6 +33,17 @@ const AppProvider = ({ children }) => {
     return;
   };
 
+  const deleteOneProductCart = (idProduct) => {
+    const allProducts = JSON.parse(localStorage.cart);
+    const productIndex = allProducts.findIndex(
+      (product) => idProduct === product._id
+    );
+    allProducts.splice(productIndex, 1);
+    const a = JSON.stringify([...allProducts]);
+    setCart(a);
+    localStorage.cart = a;
+  };
+
   const login = (data) => {
     const token = data.token;
     const decoded = jwt_decode(token);
@@ -52,7 +63,7 @@ const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    console.log("useeffectt => ", cart);
+    // console.log("useeffectt => ", cart);
     console.log("UserProvider useEffect");
     if (token) {
       console.log("Sí hay token");
@@ -79,6 +90,7 @@ const AppProvider = ({ children }) => {
         logout,
         addProductCart,
         getAllProducts,
+        deleteOneProductCart,
       }}
     >
       {children}
