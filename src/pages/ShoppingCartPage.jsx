@@ -1,17 +1,19 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { generateRandomString } from "../assets/utils/string.utils";
 import Footer from "../components/Footer/Footer";
 import NavBarBasic from "../components/NavBar/NavBarBasic";
 import ShoppingCart from "../components/shopping-cart/ShoppingCart";
 import { AppContext } from "../context/AppContext";
 import "../css/shoppingCart.css";
+import { createSaleMercadoPagoService } from "../service/SaleService";
 
 const ShoppingCartPage = () => {
+  const { cart, getAllProducts, deleteOneProductCart, idUser } = useContext(AppContext);
   const [tokenCart, setTokenCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [empty, setEmpty] = useState(false)
-  const { cart, getAllProducts, deleteOneProductCart } = useContext(AppContext);
 
   const getTotal = () => {
     let a = 0;
@@ -41,6 +43,43 @@ const ShoppingCartPage = () => {
     deleteOneProductCart(id);
   };
 
+  const handlePayment = () => {
+    Swal.fire({
+      title: `Pagar el importe de $ ${total}`,
+      text: "Este proceso no se puede revertir!",
+      showCancelButton: true,
+      confirmButtonColor: '#3ebfff',
+      cancelButtonColor: '#6c757d',
+      confirmButtonText: 'Sí, proceder con el pago!',
+      cancelButtonText: 'Cancelar'
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        // Nos redireccionamos a la pasarela de pagos
+        console.log('redireccionamiento a la pasarela');
+        try {
+          const venta = {
+            client_id: idUser,
+            total,
+            detail: getAllProducts().map(product => {
+              return {
+                product: product.name,
+                price: product.price,
+                amount: 1
+              }
+            })
+          };
+          console.log('Venta => ', venta);
+          const result = await createSaleMercadoPagoService(venta);
+          const data = result.data;
+          window.location.replace(data.url);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    });
+  };
+
+
   useEffect(() => {
     initData();
   }, [cart]);
@@ -58,9 +97,7 @@ const ShoppingCartPage = () => {
                 <div className="total">
                   <h3 className="total__title">Total:</h3>
                   <h3 className="total__price">S/ {total}</h3>
-                  <Link to='/cart-shopping/checkout'>
-                    <button className="total__pay">Pagar</button>
-                  </Link>
+                  <button onClick={handlePayment} className="total__pay">Pagar</button>
                 </div>
                 <div className="cartProducts">
                   <h2 className="">Cesta</h2>

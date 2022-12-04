@@ -19,6 +19,7 @@ const Checkout = () => {
   useEffect(() => {
     initData();
   }, []);
+  
   return (
     <>
       <NavBarCheckout />
