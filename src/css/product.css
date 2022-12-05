@@ -1,0 +1,22 @@
+.detail {
+}
+
+.detail__img {
+  object-fit: cover;
+}
+
+.detail__container {
+}
+/*
+object-fit: cover;
+width: 4.8rem;
+height: 4.8rem;
+*/
+.detail__title{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+
+}

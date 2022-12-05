@@ -77,7 +77,6 @@ const ShoppingCartPage = () => {
   };
 
   useEffect(() => {
-    console.log(idUser)
     initData();
   }, [cart]);
 
