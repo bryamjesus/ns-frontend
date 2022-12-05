@@ -33,12 +33,21 @@
   width: 100%;
   border: none;
   background-color: var(--fondo-nav);
+  transition: scale 0.4s;
+}
+
+.total__pay:hover {
+  scale: 1.05;
 }
 
 @media (min-width: 768px) {
   .total {
     grid-column: 3/4;
     border: none;
+  }
+
+  .total__price {
+    font-size: 3rem;
   }
 }
 
@@ -75,6 +84,7 @@
 .cart__header {
   grid-area: header;
 }
+
 .cart__title {
   font-size: 1rem;
   font-weight: 600;
@@ -113,11 +123,12 @@
     text-align: right;
   }
 
-  .cart__title {
+  .cart__title,
+  .cart__price {
     font-size: 1.5rem;
   }
 
   .cart__link {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
