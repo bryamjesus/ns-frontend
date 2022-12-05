@@ -1,8 +1,13 @@
-const ShowProduct = ({ name }) => {
+import { URL_IMG } from "../../../helper/Config";
+
+const ShowProduct = ({ name, image }) => {
   return (
     <>
-      <h1>Hola</h1>
-      <p>{name}</p>
+      <div className="detail">
+        <div className="detail__img">
+          <img src={`${URL_IMG}/${image}`} />
+        </div>
+      </div>
     </>
   );
 };

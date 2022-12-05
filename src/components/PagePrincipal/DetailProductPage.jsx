@@ -28,7 +28,7 @@ const DetailProductPage = () => {
         {cargando ? (
           <Loading />
         ) : (
-          <ShowProduct key={product._id} name={product.name} />
+          <ShowProduct key={product._id} name={product.name} image={product.image}/>
         )}
       </div>
     </>

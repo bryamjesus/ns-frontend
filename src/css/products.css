@@ -10,6 +10,11 @@
   background-color: #fbfbfb;
   color: var(--color-letra-principal);
   border-radius: 10px;
+  transition: scale 0.3s;
+}
+
+.product:hover {
+  scale: 1.04;
 }
 
 .product__img {
@@ -19,13 +24,23 @@
 }
 
 .product__content {
-  padding: 1.5rem 0 1.5rem 0;
+  padding: 1.2rem 0.8rem 1.2rem 0.8rem;
 }
 
-.product__title{
+.product__title {
   font-weight: 600;
 }
 
-.product__description{
+.product__description {
   color: #6e6e73;
+}
+
+.product__button {
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 10px 0;
+  color: var(--white);
+  width: 100%;
+  border: none;
+  background-color: var(--fondo-nav);
 }

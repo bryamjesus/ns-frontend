@@ -8,17 +8,15 @@ const CardProduct = ({ id, name, description, price, image, productCart, objetoT
       <div className="product">
         <Link to={`/${id}`}>
           <img className="product__img" src={`${URL_IMG}/${image}`} />
-          <div className="product__content">
+        </Link>
+        <div className="product__content">
+          <Link to={`/${id}`}>
             <h4 className="product__title">{name}</h4>
-            {/* <p>{description}</p> */}
             <div className="product__description">
               <p>S/ {price}</p>
             </div>
-          </div>
-        </Link>
-        <div>
-          <button onClick={() => productCart(objetoTotal)}>CARRITO</button>
-          {/* <button>S</button> */}
+          </Link>
+          <button className="product__button" onClick={() => productCart(objetoTotal)}>CARRITO</button>
         </div>
       </div>
     </>

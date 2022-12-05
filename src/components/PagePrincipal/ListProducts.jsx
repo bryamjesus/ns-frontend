@@ -10,13 +10,13 @@ const ListProducts = () => {
   const [products, setProducts] = useState([]);
 
   const productCart = (id) => {
-    console.log(id)
     addProductCart(id);
     Swal.fire({
       icon: 'success',
       title: `Hemos agregado ${id.name} al carrito!`,
       confirmButtonText: 'Aceptar',
-      confirmButtonColor: '#0d6efd'
+      confirmButtonColor: '#0d6efd',
+      timer: 1000,
     });
   };
 
