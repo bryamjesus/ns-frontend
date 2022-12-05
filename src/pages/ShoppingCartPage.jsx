@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { generateRandomString } from "../assets/utils/string.utils";
 import Footer from "../components/Footer/Footer";
@@ -95,7 +96,7 @@ const ShoppingCartPage = () => {
                   <h3 className="total__price">S/ {total}</h3>
                   <button disabled={(idUser === null)} onClick={handlePayment} className={(idUser === null) ? `total__pay--not` : `total__pay`}>Pagar</button>
                   {
-                    idUser === null && (<p>Inicie sesion o registrese para realizar el pago</p>)
+                    idUser === null && (<p><Link to='/login'>Inicie sesion</Link> o registrese para realizar el pago</p>)
                   }
                 </div>
                 <div className="cartProducts">
