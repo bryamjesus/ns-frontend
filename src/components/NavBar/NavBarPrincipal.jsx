@@ -14,6 +14,7 @@ const NavBarPrincipal = () => {
   };
 
   useEffect(() => {
+    console.log(role)
     // console.log(2)
     // const handelMenuActive = (e) => {
     //   console.log(e.path[0].className);
@@ -52,7 +53,7 @@ const NavBarPrincipal = () => {
             className={`nav__links ${active ? "active" : ""}`}
           >
             <Link to="/cart-shopping" className="nav__link">
-              <img src="/cart4.svg" />
+              <img className="nav__cart" src="/cart4.svg" />
             </Link>
             {token ? (
               <Link onClick={handleLogut} className="nav__link">

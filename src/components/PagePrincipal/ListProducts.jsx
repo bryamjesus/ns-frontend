@@ -3,13 +3,21 @@ import { getAllProducts } from "../../service/ProductService";
 import CardProduct from "./Card/CardProduct";
 import "../../css/products.css";
 import { AppContext } from "../../context/AppContext";
+import Swal from "sweetalert2";
 
 const ListProducts = () => {
   const { addProductCart } = useContext(AppContext);
   const [products, setProducts] = useState([]);
 
   const productCart = (id) => {
+    console.log(id)
     addProductCart(id);
+    Swal.fire({
+      icon: 'success',
+      title: `Hemos agregado ${id.name} al carrito!`,
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: '#0d6efd'
+    });
   };
 
   const listAllProducts = async () => {
@@ -33,7 +41,7 @@ const ListProducts = () => {
             price={product.price}
             image={product.image}
             productCart={productCart}
-            objetoTotal = {product}
+            objetoTotal={product}
           />
         ))}
       </section>

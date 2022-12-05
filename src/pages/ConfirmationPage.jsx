@@ -1,9 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Footer from "../components/Footer/Footer"
 import NavBarBasic from "../components/NavBar/NavBarBasic";
-import NavBarCheckout from "../components/NavBar/NavBarChecout"
-import { AppContext } from "../context/AppContext";
 import { updateSaleService } from "../service/SaleService";
 
 const ConfirmationPage = () => {
@@ -56,14 +54,12 @@ const ConfirmationPage = () => {
                 <p className="text-muted mb-4">{respuesta.mensaje}</p>
               </div>
             </div>
-            <Link className="btn btn-primary" to="/productos">
+            <Link className="btn btn-primary" to="/">
               Seguir comprando
             </Link>
           </div>
         </div>
       </div>
-
-
       <Footer />
     </>
   )

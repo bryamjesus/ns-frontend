@@ -63,6 +63,11 @@
   right: 45px;
 }
 
+.nav__cart{
+  color: var(--white);
+  width: 24px;
+}
+
 .active {
   pointer-events: unset;
   opacity: 1;
