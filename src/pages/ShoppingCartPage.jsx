@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { generateRandomString } from "../assets/utils/string.utils";
 import Footer from "../components/Footer/Footer";
@@ -54,8 +53,6 @@ const ShoppingCartPage = () => {
       cancelButtonText: 'Cancelar'
     }).then(async (result) => {
       if (result.isConfirmed) {
-        // Nos redireccionamos a la pasarela de pagos
-        console.log('redireccionamiento a la pasarela');
         try {
           const venta = {
             client_id: idUser,
@@ -68,19 +65,18 @@ const ShoppingCartPage = () => {
               }
             })
           };
-          console.log('Venta => ', venta);
           const result = await createSaleMercadoPagoService(venta);
           const data = result.data;
           window.location.replace(data.url);
         } catch (error) {
-          console.log(error);
+          console.error(error);
         }
       }
     });
   };
 
-
   useEffect(() => {
+    console.log(idUser)
     initData();
   }, [cart]);
 
@@ -97,7 +93,10 @@ const ShoppingCartPage = () => {
                 <div className="total">
                   <h3 className="total__title">Total:</h3>
                   <h3 className="total__price">S/ {total}</h3>
-                  <button onClick={handlePayment} className="total__pay">Pagar</button>
+                  <button disabled={(idUser === null)} onClick={handlePayment} className={(idUser === null) ? `total__pay--not` : `total__pay`}>Pagar</button>
+                  {
+                    idUser === null && (<p>Inicie sesion o registrese para realizar el pago</p>)
+                  }
                 </div>
                 <div className="cartProducts">
                   <h2 className="">Cesta</h2>
@@ -117,7 +116,6 @@ const ShoppingCartPage = () => {
               </div>
             )
           }
-
         </div>
       </main>
       <Footer />
