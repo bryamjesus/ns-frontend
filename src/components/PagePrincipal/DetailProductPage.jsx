@@ -11,7 +11,7 @@ const DetailProductPage = () => {
 
   const getProduct = async () => {
     const result = await getOneProduct(id);
-    console.log(result.data);
+    // console.log(result.data);
     if (result.data) {
       setCargando(false);
       setProduct(result?.data);
@@ -28,7 +28,7 @@ const DetailProductPage = () => {
         {cargando ? (
           <Loading />
         ) : (
-          <ShowProduct key={product._id} name={product.name} image={product.image} price={product.price} description={product.description} />
+          <ShowProduct key={product._id} name={product.name} image={product.image} price={product.price} description={product.description} product={product} />
         )}
       </div>
     </>

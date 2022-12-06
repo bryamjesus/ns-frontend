@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { generateRandomString } from "../assets/utils/string.utils";
+import Empty from "../components/Empty/Empty";
 import Footer from "../components/Footer/Footer";
 import NavBarBasic from "../components/NavBar/NavBarBasic";
 import ShoppingCart from "../components/shopping-cart/ShoppingCart";
@@ -87,7 +88,7 @@ const ShoppingCartPage = () => {
         <div className="container">
           {
             empty ? (
-              <h1>Vacio</h1>
+              <Empty />
             ) : (
               <div className="shoppingCart">
                 <div className="total">

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useReducer, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getAllProducts } from "../../service/ProductService";
 import CardProduct from "./Card/CardProduct";
 import "../../css/products.css";

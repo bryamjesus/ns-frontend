@@ -7,10 +7,8 @@
 }
 
 :root {
-  --color-nav:#323232;
+  --color-nav: #323232;
   --color-letra-principal: #1d1d1f;
-
-
 
   --fondo-nav: #3ebfff; /* #f0f4f1 */
   --fondo-card: #f0f4f1;
@@ -45,10 +43,24 @@ img {
   padding: 30px 0;
 }
 
-.pdx-1{
+.pdx-1 {
   padding: 1rem 0;
 }
 
-.bd-2-gray{
+.bd-2-gray {
   border-bottom: 2px solid #eee;
+}
+
+.red{
+  color: red;
+}
+
+.button__cart {
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 10px 0;
+  color: var(--white);
+  width: 100%;
+  border: none;
+  background-color: var(--fondo-nav);
 }

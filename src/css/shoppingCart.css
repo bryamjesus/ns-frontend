@@ -30,11 +30,12 @@
   transition: scale 0.4s;
 }
 
-.total__pay--not{
-  background-color: var(--color-nav)
+.total__pay--not {
+  background-color: var(--color-nav);
 }
 
-.total__pay--not ,.total__pay{
+.total__pay--not,
+.total__pay {
   font-size: 1rem;
   font-weight: 400;
   color: var(--white);

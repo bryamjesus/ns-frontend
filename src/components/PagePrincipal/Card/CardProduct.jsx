@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { URL_IMG } from "../../../helper/Config";
 import "../../../css/products.css";
+import ButtonAddToCart from "../../Button/ButtonAddToCart";
 
 const CardProduct = ({ id, name, description, price, image, productCart, objetoTotal }) => {
   return (
@@ -16,7 +17,8 @@ const CardProduct = ({ id, name, description, price, image, productCart, objetoT
               <p>S/ {price}</p>
             </div>
           </Link>
-          <button className="product__button" onClick={() => productCart(objetoTotal)}>CARRITO</button>
+          <ButtonAddToCart objectProduct={objetoTotal} />
+          {/* <button className="product__button" onClick={() => productCart(objetoTotal)}>CARRITO</button> */}
         </div>
       </div>
     </>
