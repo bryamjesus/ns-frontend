@@ -9,6 +9,7 @@
   /* border: 1px solid black; */
   background-color: #fbfbfb;
   color: var(--color-letra-principal);
+  border: 1px solid #c6c6c7;
   border-radius: 10px;
   transition: scale 0.3s;
 }
