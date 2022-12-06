@@ -12,9 +12,29 @@ object-fit: cover;
 width: 4.8rem;
 height: 4.8rem;
 */
+.detail__categories {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 1rem;
+}
+
 .detail__title {
   font-size: 2rem;
   font-weight: bold;
+}
+
+.detail__sizes,
+.detail__events {
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detail__size {
+  border: 2px solid black;
+  border-radius: 2rem;
+  padding: 10px 20px;
 }
 
 @media (min-width: 768px) {
