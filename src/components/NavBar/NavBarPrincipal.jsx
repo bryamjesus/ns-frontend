@@ -52,9 +52,21 @@ const NavBarPrincipal = () => {
             ref={refHambuerguer}
             className={`nav__links ${active ? "active" : ""}`}
           >
-            <Link to="/cart-shopping" className="nav__link">
-              <img className="nav__cart" src="/cart4.svg" />
-            </Link>
+            {
+              role !== 'A' && (
+                <Link to="/cart-shopping" className="nav__link">
+                  <img className="nav__cart" src="/cart4.svg" />
+                </Link>
+              )
+            }
+
+            {
+              role === 'A' && (
+                <Link to="/cart-shopping" className="nav__link">
+                  Ventas
+                </Link>
+              )
+            }
             {token ? (
               <Link onClick={handleLogut} className="nav__link">
                 Cerrar Sesión

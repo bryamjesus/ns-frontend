@@ -96,7 +96,7 @@ const ShoppingCartPage = () => {
                   <h3 className="total__price">S/ {total}</h3>
                   <button disabled={(idUser === null)} onClick={handlePayment} className={(idUser === null) ? `total__pay--not` : `total__pay`}>Pagar</button>
                   {
-                    idUser === null && (<p><Link to='/login'>Inicie sesion</Link> o registrese para realizar el pago</p>)
+                    idUser === null && (<p><Link to='/login'>Inicie sesión</Link> para realizar el pago</p>)
                   }
                 </div>
                 <div className="cartProducts">
