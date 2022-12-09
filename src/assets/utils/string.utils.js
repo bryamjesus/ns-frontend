@@ -1,6 +1,6 @@
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 const allSize = {
-  0:0,1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7
+  0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7
 }
 
 const allEvent = {
@@ -8,6 +8,11 @@ const allEvent = {
   "Verano": "VERANO",
   "Halloween": "HALLOWEEN",
   "Disfraz": "DISFRAZ"
+}
+
+export const ROLE_USER = {
+  "ADMIN": 'A',
+  "CLIENT": 'U'
 }
 
 export const generateRandomString = () => {
@@ -34,6 +39,3 @@ export const getAllSize = (sizes) => {
 
   return ({ onlyEvent, onlySizes })
 }
-
-
-

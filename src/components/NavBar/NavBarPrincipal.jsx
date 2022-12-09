@@ -62,7 +62,7 @@ const NavBarPrincipal = () => {
 
             {
               role === 'A' && (
-                <Link to="/cart-shopping" className="nav__link">
+                <Link to="/sale" className="nav__link">
                   Ventas
                 </Link>
               )

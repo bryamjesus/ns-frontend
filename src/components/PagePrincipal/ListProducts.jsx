@@ -37,10 +37,9 @@ const ListProducts = () => {
             key={product._id}
             id={product._id}
             name={product.name}
-            description={product.description}
             price={product.price}
             image={product.image}
-            productCart={productCart}
+            // productCart={productCart}
             objetoTotal={product}
           />
         ))}
