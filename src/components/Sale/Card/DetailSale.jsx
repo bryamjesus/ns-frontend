@@ -1,6 +1,13 @@
+import { useEffect } from "react"
 import { Button, Modal } from "react-bootstrap"
 
 const DetailSale = (props) => {
+
+  useEffect(() => {
+    console.log("detalle")
+    console.log(props)
+  }, [])
+
   return (
     <h1>
       <Modal

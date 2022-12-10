@@ -65,3 +65,7 @@ img {
   border-radius: 3px;
   background-color: var(--fondo-nav);
 }
+
+.card{
+  position: initial;
+}
