@@ -33,13 +33,14 @@ const SaleComponent = () => {
               <CardSale
                 key={sale._id}
                 allShowData={allShowData}
+                objectSale={sale}
               />
             ))
           }
         </div>
-        <Button variant="primary" onClick={() => setModalShow(true)}>
+        {/* <Button variant="primary" onClick={() => setModalShow(true)}>
           Launch vertically centered modal
-        </Button>
+        </Button> */}
         <DetailSale
           show={modalShow}
           onHide={() => setModalShow(false)}
