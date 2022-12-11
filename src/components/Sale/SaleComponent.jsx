@@ -5,6 +5,12 @@ import '../../css/Sales.css'
 import DetailSale from "./Card/DetailSale"
 import { Button, Modal } from "react-bootstrap"
 import { separateDate } from "../../assets/utils/date.utils"
+import ReactExport from "@ibrahimrahmani/react-export-excel";
+import { getOneUser } from "../../service/UserService"
+
+const ExcelFile = ReactExport.ExcelFile
+const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
+const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 
 const SaleComponent = () => {
   const [saleDetail, setSaleDetail] = useState(
@@ -19,6 +25,7 @@ const SaleComponent = () => {
     }
   )
   const [sales, setSales] = useState([])
+  const [salesExport, setSalesExport] = useState([])
   const [modalShow, setModalShow] = useState(false);
   const [show, setShow] = useState(false);
 
@@ -27,8 +34,21 @@ const SaleComponent = () => {
 
   const getAllSales = async () => {
     const { data } = await getAllSalesService()
+    const a = await getAllSalesExport(data)
     setSales([...data])
-    console.log(data)
+    setSalesExport(a)
+  }
+
+  const getAllSalesExport = async (sales) => {
+    const newSalesWithNameUser = []
+    sales.forEach(async (sale) => {
+      const { data } = await getOneUser(sale.client_id)
+      const newSales = { ...sale, allName: data.allName, email: data.email }
+      // console.log(newSales)
+      newSalesWithNameUser.push({ ...newSales })
+    })
+
+    return newSalesWithNameUser
   }
 
   const allShowData = (objectSale) => {
@@ -40,11 +60,27 @@ const SaleComponent = () => {
 
   useEffect(() => {
     getAllSales()
+    // getAllSalesExport()
   }, [])
 
   return (
     <>
       <div className="container">
+        <div className="pb-3">
+          <ExcelFile element={<button className="btn btn-success">Exportar Ventas <i className="bi bi-arrow-down-circle-fill"></i></button>}>
+            <ExcelSheet data={salesExport} name="Compras">
+              <ExcelColumn label="Cliente" value="allName" />
+              <ExcelColumn label="Correo" value="email" />
+              <ExcelColumn label="Fecha" value="date" />
+              {/* <ExcelColumn
+              label="Estado"
+              value={(col) => col.estado === 'P' ? "Pendiente" : (col.estado === 'E' ? 'Entregado' : 'Anulado')}
+            /> */}
+              <ExcelColumn label="Total" value="total" />
+            </ExcelSheet>
+          </ExcelFile>
+        </div>
+
         <div className="sales">
           {
             sales.map((sale) => (
